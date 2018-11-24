@@ -15,6 +15,8 @@ func main() {
 		panic(err)
 	}
 
+	go server.Ping("1.1.1.1")
+
 	fmt.Println("Sending pings")
 	err = server.Ping("8.8.8.8")
 	if err != nil {
