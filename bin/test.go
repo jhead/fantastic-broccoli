@@ -7,18 +7,14 @@ import (
 )
 
 func main() {
-	server := trace.TraceServer{}
-
 	fmt.Println("Starting server")
-	err := server.Start()
+	server, err := trace.New()
 	if err != nil {
 		panic(err)
 	}
 
-	go server.Ping("1.1.1.1")
-
 	fmt.Println("Sending pings")
-	err = server.Ping("8.8.8.8")
+	err = server.Ping("1.1.1.1")
 	if err != nil {
 		panic(err)
 	}
